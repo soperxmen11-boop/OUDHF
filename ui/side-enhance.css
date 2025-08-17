@@ -1,0 +1,50 @@
+
+/* ui/side-enhance.css — colored icons + slide-in menu + slider relocation */
+.kp-side {
+  position: fixed; top: 0; left: 0; height: 100vh; width: 260px;
+  transform: translateX(-110%);
+  transition: transform .28s ease;
+  z-index: 9998;
+}
+.kp-side.open { transform: translateX(0); }
+
+.kp-side .item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; margin: 8px 10px; border-radius: 14px;
+  background: rgba(255,255,255,.85);
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  font-weight: 800; cursor: pointer; user-select: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.kp-side .item:hover { transform: translateY(-2px); }
+
+.kp-ico {
+  width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+  font-size: 20px; color: #fff; box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.item:hover .kp-ico { box-shadow: 0 0 18px rgba(255,255,255,.6), 0 0 36px rgba(255,255,255,.3); transform: rotate(-3deg) scale(1.06); }
+
+/* colored icons */
+.kp-ico.game { background:#8a4dff; }        /* 🧩 */
+.kp-ico.settings { background:#118ab2; }    /* ⚙️ */
+.kp-ico.leader { background:#f2c94c; color:#5b4600; } /* 🏆 */
+.kp-ico.shop { background:#06d6a0; }       /* 🛍️ */
+
+/* Hide any sliders that remained in main menu area to avoid overlap */
+#mainMenu input[type=range] { display:none !important; }
+
+
+/* --- Fix: hide any legacy sidebars/duplicate menus --- */
+.side-menu:not(#sideMenu),
+.menu-side,
+.menuColumn,
+#leftMenu,
+#rightMenu,
+#drawerMenu,
+.hamburger-mini,
+.card-hamburger { display: none !important; }
+
+/* keep only our toggle */
+#menuBtn, .hamburger { display: none !important; }
+#menuToggle { display: inline-block !important; }

@@ -1,0 +1,26 @@
+
+/* ui/hud.css — top bar HUD */
+#kp-hud {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  font-family: inherit; font-weight: 700;
+  z-index: 10000;
+}
+#kp-hud .group { display: flex; gap: 14px; align-items: center; }
+#kp-hud .pill {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius: 999px; background: rgba(0,0,0,.06);
+}
+#kp-hud .pill .val { min-width: 32px; text-align: center; }
+#kp-hud button.kp-icon {
+  border:0; background: rgba(0,0,0,.08); border-radius: 12px; padding:8px 10px; cursor:pointer;
+  transition: transform .15s ease;
+}
+#kp-hud button.kp-icon:active { transform: scale(.95); }
+@media (max-width:640px){
+  #kp-hud{ font-size:14px; }
+}
